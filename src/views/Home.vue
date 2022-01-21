@@ -1,32 +1,38 @@
 <template>
   <div class="home">
-    首页
-    <a-button type="primary" @click="info">Display normal message</a-button>
+    <!--    头部-->
+    <div class="head">
+      头部
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { message } from 'ant-design-vue';
-import { defineComponent } from 'vue';
+import {message} from 'ant-design-vue';
+import {defineComponent} from 'vue';
 import {getData} from '@/api'
+
 export default defineComponent({
   name: 'Home',
-  components: {
-
-  },
+  components: {},
   setup() {
     const info = () => {
       message.info('This is a normal message');
+      getData().then(function (res) {
+        let data = res.data
+        console.log(data)
+      })
     };
     return {
       info,
     };
-},
-  created(){
-    getData().then(function(res){
-      let data = res.data
-      console.log(data)
-    })
-  }
+  },
 });
 </script>
+<style lang="less" scoped>
+.home {
+  .head {
+    color: aquamarine;
+  }
+}
+</style>

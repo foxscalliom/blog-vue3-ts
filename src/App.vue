@@ -9,4 +9,7 @@
 </template>
 
 <style>
+#app {
+  background: #f4f5f5;
+}
 </style>
